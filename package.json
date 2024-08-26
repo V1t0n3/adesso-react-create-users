@@ -1,5 +1,5 @@
 {
-  "name": "adesso-react-create-users",
+  "name": "adesso-new-user-form",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,8 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^1.7.5",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.53.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
