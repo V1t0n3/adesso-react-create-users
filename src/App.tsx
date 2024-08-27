@@ -1,13 +1,16 @@
 import React from 'react'
 import './App.css'
+import LoginPage from './pages/LoginPage';
 
 function App() {
 
   return (
     <>
-    Create User Form
+    <div className="root">
+    <LoginPage />
+    </div>
     </>
-  )
+  );
 }
 
 export default App
