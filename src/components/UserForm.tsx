@@ -1,16 +1,18 @@
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import axios from "axios";
-import { User } from "../lib/types";
+import { User, UserFormProps } from "../lib/types";
 import STRINGS from "../lib/strings";
 import CONST from "../lib/const";
+import "./UserForm.css";
 
-const UserForm: React.FC = () => {
+const UserForm: React.FC<UserFormProps> = ({ onSuccess }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
     setError,
+    reset,
   } = useForm<User>();
 
   const onSubmit: SubmitHandler<User> = async (data) => {
@@ -27,13 +29,14 @@ const UserForm: React.FC = () => {
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
-            Authorization: `Bearer ${CONST.gorestAuthToken}`,
+            Authorization: `Bearer ${CONST.GOREST_AUTH_TOKEN}`,
           },
         }
       );
-      console.log(response.data);
 
-      alert(STRINGS.userSuccessful);
+      console.log(response.status);
+      reset();
+      onSuccess();
     } catch (error: any) {
       if (axios.isAxiosError(error) && error.response?.status === 422) {
         const errors = error.response?.data;
@@ -56,14 +59,15 @@ const UserForm: React.FC = () => {
   return (
     <div className="container">
       <form className="user-form" onSubmit={handleSubmit(onSubmit)}>
+        <h1 className="title">{STRINGS.userFormTitle}</h1>
         <div>
           <input
             placeholder="Enter Name"
             type="text"
             {...register("name", {
               required: STRINGS.nameRequired,
-              minLength: { value: 2, message: STRINGS.minName },
-              maxLength: { value: 50, message: STRINGS.maxName },
+              minLength: { value: CONST.minCharName, message: STRINGS.minName },
+              maxLength: { value: CONST.maxCharName, message: STRINGS.maxName },
             })}
           />
           {errors.name && (
@@ -104,7 +108,7 @@ const UserForm: React.FC = () => {
             </option>
             <option value="male">Male</option>
             <option value="female">Female</option>
-            <option value="female">Not specify</option>
+            <option value="female">I prefer not to say</option>
           </select>
           {errors.gender && (
             <span>
@@ -133,7 +137,7 @@ const UserForm: React.FC = () => {
           )}
         </div>
 
-        <button type="submit">Sign Up</button>
+        <button type="submit">{STRINGS.userFormButtonText}</button>
       </form>
     </div>
   );

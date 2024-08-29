@@ -1,8 +1,8 @@
-
 const CONST = {
-    gorestAuthToken: "2dbd37bc985519bffea1d5b64bbf24bc37fc09d5629aa125cfcc48c54913a7da",
-    minCharName: 2,
-    maxCharName: 25
-}
+  GOREST_AUTH_TOKEN:
+    "6e76959e882911c01897cf37ba6c464ad66026a8daa09b098988de838074d75e",
+  minCharName: 2,
+  maxCharName: 25,
+};
 
-export default CONST
+export default CONST;

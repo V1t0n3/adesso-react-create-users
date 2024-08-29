@@ -1,6 +1,6 @@
 import CONST from "./const"
 
-const STRINGS = {
+const STRING = {
     userSuccessful: "User succesfully created",
     userError: "User not created due to an error. Please retry",
     connectionError: "Connection error or Unknown error. Please retry",
@@ -11,7 +11,9 @@ const STRINGS = {
     statusRequired: "Status required",
     emailRequired: "Email required",
     emailInvalid: "Invalid email",
-    emailUsed: "Email already in use"
+    emailUsed: "Email already in use",
+    userFormButtonText: "Create User",
+    userFormTitle: "Create new user"
 }
 
-export default STRINGS
+export default STRING

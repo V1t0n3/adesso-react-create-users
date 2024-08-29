@@ -1,0 +1,58 @@
+form {
+  background-color: white;
+  padding: 40px;
+  border-radius: 15px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+}
+
+form .title {
+  text-align: center;
+  color: var(--adesso-blue);
+  margin-top: 0px;
+  margin-bottom: 40px;
+}
+
+input[type="text"],
+input[type="email"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 21px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  box-sizing: border-box;
+  height: 50px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+select:focus {
+  outline: none;
+  border: 1px solid var(--adesso-blue);
+  box-shadow: 0 0 5px var(--adesso-blue);
+  color: #000;
+}
+
+select {
+  color: #aaa;
+}
+
+select:valid {
+  color: #000;
+}
+
+span {
+  text-align: left;
+  color: red;
+  font-size: 12px;
+  margin-top: -16px;
+  margin-bottom: 15px;
+  display: flow;
+}
+
+span i {
+  margin-right: 8px;
+}
